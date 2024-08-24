@@ -1,0 +1,155 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.section {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.header {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #0072ff;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hidden {
+    display: none;
+}
+
+.button {
+    background-color: #0072ff;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1rem;
+}
+
+.button:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+}
+
+.card {
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+    background: #f9f9f9;
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.card textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    resize: vertical;
+    font-size: 1rem;
+}
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(to bottom, #0072ff, #00c6ff);
+    border: 4px solid #0072ff;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.file-upload:hover {
+    background: linear-gradient(to top, #0072ff, #00c6ff);
+    transform: scale(1.05);
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload i {
+    font-size: 4rem;
+    color: #fff;
+    transition: transform 0.3s;
+}
+
+.file-upload:hover i {
+    transform: rotate(180deg);
+}
+
+.live-preview {
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.26);
+    text-align: center;
+}
+
+.live-preview h1,
+.live-preview p {
+    color: #000000;
+    margin-bottom: 1rem;
+}
+
+.live-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
