@@ -1,100 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeeIT</title>
-    <link href="https://unpkg.com/tailwindcss@^2.2.18/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Scroll Effect Example</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            background-color: transparent;
+            z-index: 1000;
+        }
+
+        #logo {
+            text-align: center;
+            padding: 20px;
+            transition: display 0.3s ease;
+        }
+
+        #logo img {
+            max-width: 150px;
+        }
+
+        #navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            display: none; /* Initially hidden */
+        }
+
+        #navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #navbar li {
+            margin: 0 15px;
+        }
+
+        #navbar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            margin-top: 100px; /* Adjust according to your logo size */
+        }
+    </style>
 </head>
-
 <body>
-    <div class="container flex flex-wrap">
-        <!-- Left Section -->
-        <div class="section">
-            <h2 class="header">Customize Your Card</h2>
-            <form class="w-full">
-                <!-- Heading Section -->
-                <div id="upperDiv" class="w-full mb-4">
-                    <div class="mb-4">
-                        <label for="heading" class="block font-bold">Heading:</label>
-                        <input type="text" id="heading" class="border p-2 w-full rounded-lg" />
-                    </div>
-                    <div class="flex">
-                        <div class="w-1/2 mr-2">
-                            <label for="headingAlign" class="block font-bold">Alignment:</label>
-                            <select id="headingAlign" class="border p-2 w-full rounded-lg">
-                                <option value="left">Left</option>
-                                <option value="center">Center</option>
-                                <option value="right">Right</option>
-                            </select>
-                        </div>
-                        <div class="w-1/2">
-                            <label for="headingColor" class="block font-bold">Color:</label>
-                            <select id="headingColor" class="border p-2 w-full rounded-lg">
-                                <option value="black">Black</option>
-                                <option value="red">Red</option>
-                                <option value="green">Green</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Image Section -->
-                <div class="flex justify-center">
-                    <div id="upperDiv1" class="file-upload w-full mb-4">
-                        <img src="https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=" alt="">
-                        <input type="file" id="image" class="border p-2 w-full rounded-lg" />
-                    </div>
-                </div>
-
-                <!-- Description Section -->
-                <div id="upperDiv2" class="w-full mb-4">
-                    <div class="mb-4">
-                        <label for="desc" class="block font-bold">Description:</label>
-                        <textarea id="desc" class="border p-2 w-full rounded-lg"></textarea>
-                    </div>
-                    <div class="flex">
-                        <div class="w-1/2 mr-2">
-                            <label for="descAlign" class="block font-bold">Alignment:</label>
-                            <select id="descAlign" class="border p-2 w-full rounded-lg">
-                                <option value="left">Left</option>
-                                <option value="center">Center</option>
-                                <option value="right">Right</option>
-                            </select>
-                        </div>
-                        <div class="w-1/2">
-                            <label for="descColor" class="block font-bold">Color:</label>
-                            <select id="descColor" class="border p-2 w-full rounded-lg">
-                                <option value="black">Black</option>
-                                <option value="red">Red</option>
-                                <option value="green">Green</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-               
-            </form>
+    <header id="header">
+        <div id="logo">
+            <img src="logo.png" alt="Logo">
         </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- Right Section -->
-        <div class="section ml-4">
-            <h2 class="header">Live Preview</h2>
-            <div id="livePreview" class="live-preview p-4 border rounded-lg">
-                <h1 id="previewHeading" class="text-xl font-bold mb-2"></h1>
-                <p id="previewDesc" class="mb-2"></p>
-                <div id="previewImageContainer" class="relative">
-                    <img id="previewImage" src="" alt="Preview" class="mx-auto" style="display: none;" />
-                </div>
-            </div>
-            <button class="button w-full mt-4" id="downloadBtn">Download as Image</button>
-        </div>
-    </div>
+    <main>
+        <!-- Main content goes here -->
+        <div style="height: 2000px;">Scroll down to see the effect.</div>
+    </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const logo = document.getElementById('logo');
+            const navbar = document.getElementById('navbar');
+
+            if (window.scrollY > 100) { // Adjust this value based on when you want the effect to occur
+                header.style.backgroundColor = '#333';
+                logo.style.display = 'none';
+                navbar.style.display = 'flex';
+            } else {
+                header.style.backgroundColor = 'transparent';
+                logo.style.display = 'block';
+                navbar.style.display = 'none';
+            }
+        });
+    </script>
 </body>
-
 </html>
